@@ -1,33 +1,22 @@
 {
-  "name": "whatsapp-business-dashboard",
+  "name": "whatsapp-business-server",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
     "server": "node server/index.js",
-    "server:dev": "node --watch server/index.js"
+    "server:dev": "node --watch server/index.js",
+    "lint": "eslint server"
   },
   "dependencies": {
-    "@vitejs/plugin-react": "latest",
     "cors": "latest",
     "dotenv": "latest",
     "express": "latest",
-    "vite": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "lucide-react": "latest",
-    "react-router-dom": "latest",
     "openai": "latest"
   },
   "devDependencies": {
-    "eslint": "latest",
     "@eslint/js": "latest",
-    "eslint-plugin-react-hooks": "latest",
-    "eslint-plugin-react-refresh": "latest",
+    "eslint": "latest",
     "globals": "latest"
   }
 }
