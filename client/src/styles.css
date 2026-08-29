@@ -191,6 +191,8 @@ button { cursor: pointer; }
 .message-composer input:focus { border-color: #8edbb0; }
 .message-composer .send-button { margin-left: 7px; background: #087e69; color: white; border-radius: 50%; }
 .message-composer .send-button:hover { background: #076d5c; color: white; }
+.message-composer input:disabled { opacity: .65; }
+.message-composer .send-button:disabled { cursor: not-allowed; opacity: .55; }
 
 @media (max-width: 1050px) {
   .app-shell { grid-template-columns: 82px 1fr; }

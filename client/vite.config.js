@@ -9,6 +9,7 @@ export default defineConfig({
     ],
     proxy: {
       '/api': 'http://localhost:3001',
+      '/chat': 'http://localhost:3001',
     },
   },
   preview: {
@@ -17,6 +18,7 @@ export default defineConfig({
     ],
     proxy: {
       '/api': 'http://localhost:3001',
+      '/chat': 'http://localhost:3001',
     },
   },
 })

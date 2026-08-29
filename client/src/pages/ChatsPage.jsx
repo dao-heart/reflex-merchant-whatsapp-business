@@ -7,6 +7,7 @@ import {
   markConversationRead,
   sendFakeMessage,
 } from '../services/fakeDataStore.js'
+import { requestChatResponse } from '../services/chatApi.js'
 
 function ChatsPage({ showNotice, conversations }) {
   const [selectedId, setSelectedId] = useState(conversations[0]?.id ?? null)
@@ -38,8 +39,21 @@ function ChatsPage({ showNotice, conversations }) {
     showNotice(action === 'archive' ? `${conversation.name}'s chat archived.` : `${conversation.name}'s chat deleted.`)
   }
 
-  const handleSendMessage = (conversationId, text) => {
-    sendFakeMessage(conversationId, text)
+  const handleSendMessage = async (conversationId, text) => {
+    const conversation = conversations.find((item) => item.id === conversationId)
+    if (!conversation) return
+
+    const customerMessage = { sender: 'customer', text }
+    sendFakeMessage(conversationId, text, 'customer')
+    try {
+      const aiMessage = await requestChatResponse(
+        [...conversation.messages, customerMessage],
+        `Customer: ${conversation.name}; preferred language: ${conversation.language}; lead intent: ${conversation.leadIntent}.`,
+      )
+      sendFakeMessage(conversationId, aiMessage.text, 'agent', aiMessage)
+    } catch (error) {
+      showNotice(error.message)
+    }
   }
 
   return (

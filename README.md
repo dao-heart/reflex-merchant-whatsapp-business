@@ -27,6 +27,7 @@ npm run server:dev
 - `GET /health`
 - `GET /api/ai/status`
 - `POST /api/ai/respond` with `{ "message": "...", "businessContext": "..." }`
+- `POST /chat` with `{ "conversation": [{ "sender": "customer", "text": "..." }] }`
 - `GET /api/mock-data/dashboard`
 - `GET /api/mock-data/conversations`
 - `GET /api/mock-data/artifacts`
