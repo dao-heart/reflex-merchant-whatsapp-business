@@ -12,12 +12,12 @@ import BrandMark from './BrandMark.jsx'
 
 const navItems = [
   { label: 'Home', path: '/', icon: Home },
-  { label: 'Chats', path: '/chats', icon: MessageCircleMore, count: 8 },
+  { label: 'Chats', path: '/chats', icon: MessageCircleMore, showsUnread: true },
   { label: 'Calls', path: '/calls', icon: Phone },
   { label: 'Profile', path: '/profile', icon: UserRound },
 ]
 
-function Sidebar() {
+function Sidebar({ unreadChats }) {
   return (
     <aside className="sidebar">
       <div className="brand">
@@ -30,7 +30,7 @@ function Sidebar() {
 
       <nav className="main-nav" aria-label="Main navigation">
         <p className="nav-label">WORKSPACE</p>
-        {navItems.map(({ label, path, icon: Icon, count }) => (
+        {navItems.map(({ label, path, icon: Icon, showsUnread }) => (
           <NavLink
             to={path}
             end={path === '/'}
@@ -39,7 +39,7 @@ function Sidebar() {
           >
             <Icon size={20} />
             <span>{label}</span>
-            {count && <span className="nav-count">{count}</span>}
+            {showsUnread && unreadChats > 0 && <span className="nav-count">{unreadChats}</span>}
           </NavLink>
         ))}
       </nav>

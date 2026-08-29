@@ -12,7 +12,12 @@ import PagePlaceholder from './pages/PagePlaceholder.jsx'
 
 function App() {
   const [notice, setNotice] = useState('')
+  const [readConversationIds, setReadConversationIds] = useState(() => new Set())
   const { data, error, isLoading } = useCrmData()
+
+  const unreadChats = data?.conversations.filter(
+    (conversation) => conversation.unread > 0 && !readConversationIds.has(conversation.id),
+  ).length ?? 0
 
   const showNotice = (message) => {
     setNotice(message)
@@ -21,13 +26,20 @@ function App() {
 
   return (
     <div className="app-shell">
-      <Sidebar />
+      <Sidebar unreadChats={unreadChats} />
       <main className="main-content">
         <Topbar showNotice={showNotice} />
         {(isLoading || error) ? <DataState error={error} /> : (
           <Routes>
             <Route path="/" element={<HomeDashboard showNotice={showNotice} dashboard={data.dashboard} />} />
-            <Route path="/chats" element={<ChatsPage showNotice={showNotice} initialConversations={data.conversations} />} />
+            <Route path="/chats" element={(
+              <ChatsPage
+                showNotice={showNotice}
+                initialConversations={data.conversations}
+                readConversationIds={readConversationIds}
+                onConversationRead={(id) => setReadConversationIds((current) => new Set(current).add(id))}
+              />
+            )} />
             <Route path="/calls" element={<PagePlaceholder title="Calls" description="Review and manage your business call activity." icon={Phone} />} />
             <Route path="/profile" element={<PagePlaceholder title="Profile" description="Manage your business details and account settings." icon={UserRound} />} />
             <Route path="*" element={<Navigate to="/" replace />} />

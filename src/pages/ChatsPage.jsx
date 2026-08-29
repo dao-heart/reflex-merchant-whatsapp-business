@@ -2,8 +2,10 @@ import { useMemo, useState } from 'react'
 import ChatWindow from '../components/ChatWindow.jsx'
 import ConversationList from '../components/ConversationList.jsx'
 
-function ChatsPage({ showNotice, initialConversations }) {
-  const [conversations, setConversations] = useState(initialConversations)
+function ChatsPage({ showNotice, initialConversations, readConversationIds, onConversationRead }) {
+  const [conversations, setConversations] = useState(() => initialConversations.map((conversation) => (
+    readConversationIds.has(conversation.id) ? { ...conversation, unread: 0 } : conversation
+  )))
   const [selectedId, setSelectedId] = useState(initialConversations[0]?.id ?? null)
   const [menuId, setMenuId] = useState(null)
 
@@ -16,6 +18,7 @@ function ChatsPage({ showNotice, initialConversations }) {
     setSelectedId(id)
     setMenuId(null)
     setConversations((items) => items.map((item) => item.id === id ? { ...item, unread: 0 } : item))
+    onConversationRead(id)
   }
 
   const handleAction = (action, conversation) => {
@@ -24,6 +27,7 @@ function ChatsPage({ showNotice, initialConversations }) {
       window.open(`/chats?conversation=${conversation.id}`, '_blank', 'noopener,noreferrer')
       return
     }
+    onConversationRead(conversation.id)
     setConversations((items) => items.filter((item) => item.id !== conversation.id))
     if (selectedId === conversation.id) {
       const nextConversation = conversations.find((item) => item.id !== conversation.id)

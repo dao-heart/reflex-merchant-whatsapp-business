@@ -103,7 +103,7 @@ button { cursor: pointer; }
 .action-content > p { margin: 5px 0 10px; color: #86938f; font-size: 10px; }
 .action-footer { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .action-footer > span { color: #9ba6a2; font-size: 9px; }
-.action-footer button { padding: 0; border: 0; display: flex; align-items: center; gap: 4px; background: none; color: #087e69; font-size: 10px; font-weight: 700; }
+.action-footer button, .action-footer a { padding: 0; border: 0; display: flex; align-items: center; gap: 4px; background: none; color: #087e69; font-size: 10px; font-weight: 700; text-decoration: none; }
 .avatar-stack { display: flex; padding-right: 8px; }
 .avatar-stack span { width: 25px; height: 25px; margin-right: -7px; border: 2px solid white; border-radius: 50%; display: grid; place-items: center; background: #dfeee8; color: #4d7569; font-size: 7px; font-weight: 700; }
 .avatar-stack span:nth-child(2) { background: #f5ded1; color: #936754; }
