@@ -1,6 +1,8 @@
 import cors from 'cors'
 import express from 'express'
 import aiRouter from './routes/ai.js'
+import mockDataRouter from './routes/mockData.js'
+import chatRouter from './routes/chat.js'
 
 const app = express()
 
@@ -15,6 +17,8 @@ app.get('/health', (request, response) => {
 })
 
 app.use('/api/ai', aiRouter)
+app.use('/api/mock-data', mockDataRouter)
+app.use('/chat', chatRouter)
 
 app.use((request, response) => {
   response.status(404).json({ error: 'Route not found' })

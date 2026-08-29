@@ -95,8 +95,15 @@ export function deleteConversation(conversationId) {
   emit()
 }
 
-export function sendFakeMessage(conversationId, text) {
-  const message = { id: `TEMP-${Date.now()}`, sender: 'agent', text, time: 'Now', read: true }
+export function sendFakeMessage(conversationId, text, sender = 'agent', messageData = {}) {
+  const message = {
+    id: `TEMP-${Date.now()}-${Math.random().toString(16).slice(2)}`,
+    sender,
+    text,
+    time: 'Now',
+    read: sender === 'agent',
+    ...messageData,
+  }
   const conversations = state.conversations.map((conversation) => conversation.id === conversationId ? {
     ...conversation,
     preview: text,
@@ -106,7 +113,7 @@ export function sendFakeMessage(conversationId, text) {
   state = {
     ...state,
     conversations,
-    changeLog: [...state.changeLog, recordChange('message.created', message.id, { conversationId, text })],
+    changeLog: [...state.changeLog, recordChange('message.created', message.id, { conversationId, text, sender })],
   }
   emit()
 }

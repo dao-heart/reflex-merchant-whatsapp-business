@@ -3,18 +3,24 @@ import { useEffect, useRef, useState } from 'react'
 
 function ChatWindow({ conversation, onSendMessage }) {
   const [draft, setDraft] = useState('')
+  const [isSending, setIsSending] = useState(false)
   const messagesEndRef = useRef(null)
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [conversation])
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
     const message = draft.trim()
     if (!message) return
-    onSendMessage(conversation.id, message)
     setDraft('')
+    setIsSending(true)
+    try {
+      await onSendMessage(conversation.id, message)
+    } finally {
+      setIsSending(false)
+    }
   }
 
   return (
@@ -50,8 +56,8 @@ function ChatWindow({ conversation, onSendMessage }) {
       <form className="message-composer" onSubmit={handleSubmit}>
         <button type="button" aria-label="Add emoji"><Smile size={21} /></button>
         <button type="button" aria-label="Attach file"><Paperclip size={20} /></button>
-        <input value={draft} onChange={(event) => setDraft(event.target.value)} placeholder="Type a message" aria-label="Message" />
-        <button className="send-button" type="submit" aria-label="Send message"><Send size={18} /></button>
+        <input value={draft} onChange={(event) => setDraft(event.target.value)} placeholder="Ask the business agent" aria-label="Message" disabled={isSending} />
+        <button className="send-button" type="submit" aria-label="Send message" disabled={isSending || !draft.trim()}><Send size={18} /></button>
       </form>
     </section>
   )
