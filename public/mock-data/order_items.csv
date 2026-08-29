@@ -1,0 +1,7 @@
+order_item_id,order_id,product_id,variant,quantity,unit_price
+OI001,PB-2048,P003,Rose Gold / M,1,3200
+OI002,PB-2049,P001,Teal / M,1,4899
+OI003,PB-2050,P004,Indigo / One Size,1,6750
+OI004,PB-2051,P002,Mustard / One Size,2,1375
+OI005,PB-2052,P005,Emerald / M,1,8450
+OI006,PB-2053,P004,Coral / One Size,1,7250

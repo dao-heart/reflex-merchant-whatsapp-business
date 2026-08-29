@@ -1,0 +1,7 @@
+conversation_id,customer_id,status,started_at,last_message_at,unread_count,lead_intent,assigned_agent,first_response_seconds
+CONV001,C001,open,2026-08-29T10:31:00,2026-08-29T10:42:00,2,high,Priya Sharma,120
+CONV002,C002,open,2026-08-29T10:15:00,2026-08-29T10:18:00,1,medium,Priya Sharma,204
+CONV003,C003,resolved,2026-08-28T16:12:00,2026-08-28T16:28:00,0,low,Neha Joshi,180
+CONV004,C004,open,2026-08-28T15:41:00,2026-08-28T15:42:00,3,high,Neha Joshi,360
+CONV005,C005,resolved,2026-08-27T14:06:00,2026-08-27T14:08:00,0,low,Priya Sharma,96
+CONV006,C006,resolved,2026-08-26T11:24:00,2026-08-26T11:30:00,0,medium,Aditya Sen,270

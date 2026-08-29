@@ -1,0 +1,5 @@
+lead_id,customer_id,conversation_id,intent,status,estimated_value,created_at,next_follow_up
+L001,C001,CONV001,high,qualified,4899,2026-08-29,2026-08-29
+L002,C004,CONV004,high,new,7250,2026-08-28,2026-08-29
+L003,C002,CONV002,medium,converted,3200,2026-08-29,2026-08-30
+L004,C006,CONV006,medium,converted,2750,2026-08-26,2026-08-28

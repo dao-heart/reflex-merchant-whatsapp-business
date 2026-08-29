@@ -1,0 +1,7 @@
+activity_id,agent,action,entity_type,entity_id,status,created_at,duration_seconds
+ACT001,Priya Sharma,Replied to product inquiry,conversation,CONV001,completed,2026-08-29T10:33:00,120
+ACT002,Priya Sharma,Reserved inventory,order,PB-2049,completed,2026-08-29T10:39:00,55
+ACT003,Neha Joshi,Follow up on colour request,conversation,CONV004,pending,2026-08-29T10:10:00,0
+ACT004,Aditya Sen,Send overdue payment reminder,payment,PAY001,pending,2026-08-29T10:20:00,0
+ACT005,Priya Sharma,Create GST invoice,order,PB-2048,pending,2026-08-29T10:25:00,0
+ACT006,Neha Joshi,Confirm store appointment,appointment,APT002,pending,2026-08-29T10:28:00,0
