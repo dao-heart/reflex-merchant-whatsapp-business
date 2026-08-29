@@ -27,5 +27,12 @@ npm run server:dev
 - `GET /health`
 - `GET /api/ai/status`
 - `POST /api/ai/respond` with `{ "message": "...", "businessContext": "..." }`
+- `GET /api/mock-data/dashboard`
+- `GET /api/mock-data/conversations`
+- `GET /api/mock-data/artifacts`
+- `GET /api/mock-data/artifacts/:name`
 
 Set `OPENAI_BASE_URL` when connecting to a compatible hosted OpenAI instance.
+
+The client fetches dashboard and conversation data from the Express API. During
+local development, Vite proxies `/api` requests to `http://localhost:3001`.
