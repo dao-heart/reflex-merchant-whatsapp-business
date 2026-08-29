@@ -6,8 +6,26 @@ daily insights and suggested agent actions.
 ## Run locally
 
 ```bash
+cd client
 npm install
 npm run dev
 ```
 
-Run `npm run build` to create a production bundle.
+Run `npm run build` from `client/` to create a production bundle.
+
+## API server
+
+The Express server exposes a health check and an OpenAI Responses API proxy.
+
+```bash
+cp .env.example .env
+# Add your OPENAI_API_KEY to .env
+npm install
+npm run server:dev
+```
+
+- `GET /health`
+- `GET /api/ai/status`
+- `POST /api/ai/respond` with `{ "message": "...", "businessContext": "..." }`
+
+Set `OPENAI_BASE_URL` when connecting to a compatible hosted OpenAI instance.

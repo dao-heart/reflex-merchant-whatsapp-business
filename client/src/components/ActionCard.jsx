@@ -1,4 +1,5 @@
 import { ArrowUpRight } from 'lucide-react'
+import { NavLink } from 'react-router-dom'
 
 function ActionCard({ item, onAction }) {
   const Icon = item.icon
@@ -19,7 +20,11 @@ function ActionCard({ item, onAction }) {
         <p>{item.detail}</p>
         <div className="action-footer">
           <span>{item.meta}</span>
-          <button onClick={() => onAction(item.cta)}>{item.cta} <ArrowUpRight size={15} /></button>
+          {item.to ? (
+            <NavLink to={item.to}>{item.cta} <ArrowUpRight size={15} /></NavLink>
+          ) : (
+            <button onClick={() => onAction(item.cta)}>{item.cta} <ArrowUpRight size={15} /></button>
+          )}
         </div>
       </div>
     </article>

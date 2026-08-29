@@ -142,7 +142,7 @@ function buildDashboard(artifacts) {
     actions: [
       {
         key: 'replies', title: 'Reply to pending chats', detail: `${unreadCount} customer messages are waiting`,
-        meta: `${openConversations.length} open conversations`, cta: 'Open chats', tone: 'green', avatars: unreadAvatars,
+        meta: `${openConversations.length} open conversations`, cta: 'Open chats', to: '/chats', tone: 'green', avatars: unreadAvatars,
       },
       {
         key: 'orders', title: 'Collect pending payments', detail: `${pendingPayments.length} orders are awaiting payment`,

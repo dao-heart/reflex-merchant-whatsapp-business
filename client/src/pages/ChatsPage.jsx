@@ -1,10 +1,15 @@
 import { useMemo, useState } from 'react'
 import ChatWindow from '../components/ChatWindow.jsx'
 import ConversationList from '../components/ConversationList.jsx'
+import {
+  archiveConversation,
+  deleteConversation,
+  markConversationRead,
+  sendFakeMessage,
+} from '../services/fakeDataStore.js'
 
-function ChatsPage({ showNotice, initialConversations }) {
-  const [conversations, setConversations] = useState(initialConversations)
-  const [selectedId, setSelectedId] = useState(initialConversations[0]?.id ?? null)
+function ChatsPage({ showNotice, conversations }) {
+  const [selectedId, setSelectedId] = useState(conversations[0]?.id ?? null)
   const [menuId, setMenuId] = useState(null)
 
   const selectedConversation = useMemo(
@@ -15,7 +20,7 @@ function ChatsPage({ showNotice, initialConversations }) {
   const handleSelect = (id) => {
     setSelectedId(id)
     setMenuId(null)
-    setConversations((items) => items.map((item) => item.id === id ? { ...item, unread: 0 } : item))
+    markConversationRead(id)
   }
 
   const handleAction = (action, conversation) => {
@@ -24,7 +29,8 @@ function ChatsPage({ showNotice, initialConversations }) {
       window.open(`/chats?conversation=${conversation.id}`, '_blank', 'noopener,noreferrer')
       return
     }
-    setConversations((items) => items.filter((item) => item.id !== conversation.id))
+    if (action === 'archive') archiveConversation(conversation.id)
+    if (action === 'delete') deleteConversation(conversation.id)
     if (selectedId === conversation.id) {
       const nextConversation = conversations.find((item) => item.id !== conversation.id)
       setSelectedId(nextConversation?.id ?? null)
@@ -33,12 +39,7 @@ function ChatsPage({ showNotice, initialConversations }) {
   }
 
   const handleSendMessage = (conversationId, text) => {
-    setConversations((items) => items.map((item) => item.id === conversationId ? {
-      ...item,
-      preview: text,
-      time: 'Now',
-      messages: [...item.messages, { id: Date.now(), sender: 'agent', text, time: 'Now', read: true }],
-    } : item))
+    sendFakeMessage(conversationId, text)
   }
 
   return (
