@@ -1,0 +1,7 @@
+order_id,customer_id,status,total_amount,payment_status,fulfilment_status,delivery_provider,created_at,gst_invoice_status
+PB-2048,C002,confirmed,3200,pending,processing,Delhivery,2026-08-29,pending
+PB-2049,C001,confirmed,4899,paid,ready_to_ship,Blue Dart,2026-08-29,issued
+PB-2050,C005,confirmed,6750,paid,shipped,DTDC,2026-08-29,issued
+PB-2051,C006,confirmed,2750,paid,processing,Delhivery,2026-08-29,issued
+PB-2052,C003,delivered,8450,paid,delivered,Blue Dart,2026-08-28,issued
+PB-2053,C004,draft,7250,pending,unfulfilled,,2026-08-29,not_issued

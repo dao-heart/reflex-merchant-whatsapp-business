@@ -1,0 +1,7 @@
+customer_id,full_name,phone,city,state,pin_code,language,whatsapp_opt_in,avatar_url,created_at
+C001,Aanya Reddy,+919876543210,Hyderabad,Telangana,500034,English,true,https://i.pravatar.cc/96?img=47,2026-08-18
+C002,Arjun Mehta,+919811223344,Mumbai,Maharashtra,400050,Hindi,true,https://i.pravatar.cc/96?img=12,2026-08-21
+C003,Kavya Iyer,+919900112233,Chennai,Tamil Nadu,600018,Tamil,true,https://i.pravatar.cc/96?img=32,2026-06-04
+C004,Rohan Kapoor,+919820334455,Delhi,Delhi,110016,Hindi,true,https://i.pravatar.cc/96?img=11,2026-08-29
+C005,Meera Nair,+919745667788,Kochi,Kerala,682020,Malayalam,true,https://i.pravatar.cc/96?img=44,2026-07-13
+C006,Vikram Rao,+919848556677,Bengaluru,Karnataka,560038,English,true,https://i.pravatar.cc/96?img=15,2026-08-12

@@ -1,0 +1,16 @@
+message_id,conversation_id,sender,text,sent_at,delivery_status
+M001,CONV001,customer,Hi! Is the handwoven Chanderi kurta still available?,2026-08-29T10:31:00,read
+M002,CONV001,agent,"Hi Aanya! Yes, it is available in teal and maroon.",2026-08-29T10:33:00,read
+M003,CONV001,customer,Could I get the teal one in size M delivered tomorrow?,2026-08-29T10:36:00,read
+M004,CONV001,agent,"Absolutely! I have reserved one. Delivery tomorrow is available between 10 AM and 2 PM.",2026-08-29T10:39:00,read
+M005,CONV001,customer,"Perfect, thank you so much!",2026-08-29T10:42:00,read
+M006,CONV002,customer,Hello I just placed order PB-2048.,2026-08-29T10:15:00,read
+M007,CONV002,customer,Can I change my delivery address?,2026-08-29T10:18:00,delivered
+M008,CONV003,agent,"Hi Kavya, your order has been delivered. We hope you love it!",2026-08-28T16:12:00,read
+M009,CONV003,customer,The package arrived safely 🌿,2026-08-28T16:28:00,read
+M010,CONV004,customer,I saw the linen saree in your catalogue.,2026-08-28T15:41:00,read
+M011,CONV004,customer,Do you have this in a brighter colour?,2026-08-28T15:42:00,delivered
+M012,CONV005,customer,Thanks for the quick response.,2026-08-27T14:06:00,read
+M013,CONV005,agent,"You are very welcome, Meera!",2026-08-27T14:08:00,read
+M014,CONV006,customer,"I will take two dupattas, please.",2026-08-26T11:24:00,read
+M015,CONV006,agent,I have added both to your order and sent the UPI link.,2026-08-26T11:30:00,read

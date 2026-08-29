@@ -1,0 +1,4 @@
+appointment_id,customer_id,type,scheduled_at,status,assigned_to,notes
+APT001,C001,Video styling,2026-08-29T15:00:00,confirmed,Priya Sharma,Festive kurta styling
+APT002,C004,Store visit,2026-08-29T17:30:00,pending,Neha Joshi,Linen saree viewing
+APT003,C005,Alteration fitting,2026-08-30T11:00:00,confirmed,Priya Sharma,Blouse fitting

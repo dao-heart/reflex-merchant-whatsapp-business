@@ -1,0 +1,7 @@
+payment_id,order_id,method,amount,status,payment_link_sent,updated_at
+PAY001,PB-2048,UPI,3200,pending,true,2026-08-29T10:17:00
+PAY002,PB-2049,UPI,4899,completed,true,2026-08-29T10:45:00
+PAY003,PB-2050,card,6750,completed,false,2026-08-29T09:22:00
+PAY004,PB-2051,cash_on_delivery,2750,completed,false,2026-08-29T08:40:00
+PAY005,PB-2052,UPI,8450,completed,true,2026-08-28T12:10:00
+PAY006,PB-2053,payment_link,7250,pending,false,2026-08-29T10:02:00
